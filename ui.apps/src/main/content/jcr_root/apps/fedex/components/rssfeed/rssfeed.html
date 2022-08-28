@@ -7,10 +7,19 @@
     </pre>
   </div>
   <div class="cmp-helloworld__item" data-sly-use.model="com.aem.fedex.core.models.RSSFeedModel"
-    data-sly-test="${model.message}">
+    data-sly-test="${model.rssFeeds}">
     <p class="cmp-helloworld__item-label">Model message:</p>
     <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">
-      ${model.message}
+      SIZE: ${model.rssFeeds.size}
     </pre>
+
+    <ul class="tagList" data-sly-list.rssFeed="${model.rssFeeds}">
+      <li class="tagList__tag">
+        <div>${rssFeed.title}</div>
+        <div>${rssFeed.description}</div>
+        <div>${rssFeed.publishDate}</div>
+      </li>
+    </ul>
+
   </div>
 </div>
