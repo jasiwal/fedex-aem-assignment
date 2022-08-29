@@ -19,9 +19,9 @@ import com.day.cq.wcm.api.Page;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
-import com.sun.syndication.io.ParsingFeedException;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -66,16 +66,17 @@ public class RSSFeedModel {
             SyndFeedInput input = new SyndFeedInput();
             SyndFeed feed = input.build(new XmlReader(feedSource));
 
-            feed.getEntries().subList(0, noOfItems).forEach(eachFeed ->{
+            feed.getEntries().subList(0, noOfItems).forEach(eachFeed -> {
                 RSSFeedModel.RSSFeed eachLiveFeed = new RSSFeedModel.RSSFeed();
                 SyndEntry syndFeed = (SyndEntry) eachFeed;
                 eachLiveFeed.setTitle(syndFeed.getTitle());
                 eachLiveFeed.setDescription(syndFeed.getDescription().getValue());
-                eachLiveFeed.setPublishDate(((ArrayList<Element>)syndFeed.getForeignMarkup()).get(0).getContent().get(0).toString());
+                String pubDate = ((ArrayList<Element>) syndFeed.getForeignMarkup()).get(0).getContent().get(0).toString();
+                eachLiveFeed.setPublishDate(StringUtils.substringBetween(pubDate, "[Text: ", "T"));
                 liveEnteries.add(eachLiveFeed);
             });
 
-            if (!liveEnteries.isEmpty()){
+            if (!liveEnteries.isEmpty()) {
                 rssFeeds = liveEnteries;
             }
 
@@ -85,7 +86,6 @@ public class RSSFeedModel {
         }
 
     }
-
 
 
     public Collection<RSSFeedModel.RSSFeed> getRssFeeds() {
@@ -105,20 +105,20 @@ public class RSSFeedModel {
             return title;
         }
 
-        public String getDescription() {
-            return description;
-        }
-
-        public String getPublishDate() {
-            return publishDate;
-        }
-
         public void setTitle(String title) {
             this.title = title;
         }
 
+        public String getDescription() {
+            return description;
+        }
+
         public void setDescription(String description) {
             this.description = description;
+        }
+
+        public String getPublishDate() {
+            return publishDate;
         }
 
         public void setPublishDate(String publishDate) {
