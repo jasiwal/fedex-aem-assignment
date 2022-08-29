@@ -1,0 +1,46 @@
+{
+  "rss-feed": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "jcr:title": "RSS Feed",
+      "cq:template": "/conf/fedex/settings/wcm/templates/page-content",
+      "pageTitle": "RSS Feed",
+      "sling:resourceType": "fedex/components/page",
+      "navTitle": "RSS Feed",
+      "root": {
+        "jcr:primaryType": "nt:unstructured",
+        "layout": "responsiveGrid",
+        "sling:resourceType": "fedex/components/container",
+        "container": {
+          "jcr:primaryType": "nt:unstructured",
+          "layout": "responsiveGrid",
+          "sling:resourceType": "fedex/components/container",
+          "title": {
+            "jcr:primaryType": "nt:unstructured",
+            "sling:resourceType": "fedex/components/title"
+          },
+          "container": {
+            "jcr:primaryType": "nt:unstructured",
+            "layout": "responsiveGrid",
+            "sling:resourceType": "fedex/components/container",
+            "rssfeed": {
+              "jcr:primaryType": "nt:unstructured",
+              "noOfItems": "5",
+              "sling:resourceType": "fedex/components/rssfeed",
+              "rssFeeds": {
+                "jcr:primaryType": "nt:unstructured",
+                "item0": {
+                  "jcr:primaryType": "nt:unstructured",
+                  "description": "Feed Description",
+                  "publishDate": "05/05/2022",
+                  "title": "Feed Title"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
