@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                            fieldLabel="Number of Feeds"
+                            name="./noOfItems"/>
+                    <manualrssfeeds
+                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                            fieldDescription="Click '+' to add a new feed"
+                            fieldLabel="RSS Feeds"
+                            jcr:primaryType="nt:unstructured"
+                            composite="{Boolean}true">
+                        <field
+                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                jcr:primaryType="nt:unstructured"
+                                name="./rssFeeds">
+                            <items jcr:primaryType="nt:unstructured">
+                                <column
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        jcr:primaryType="nt:unstructured">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <title
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Title"
+                                                jcr:primaryType="nt:unstructured"
+                                                name="./title"/>
+                                        <description
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Description"
+                                                jcr:primaryType="nt:unstructured"
+                                                name="./description"/>
+                                        <publishdate
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Publish Date"
+                                                jcr:primaryType="nt:unstructured"
+                                                name="./publishDate"/>
+                                    </items>
+                                </column>
+                            </items>
+                        </field>
+                    </manualrssfeeds>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>

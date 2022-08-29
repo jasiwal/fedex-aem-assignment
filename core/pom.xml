@@ -43,7 +43,8 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: javax.annotation;version=0.0.0,*
+Import-Package: javax.annotation;version=0.0.0, !oracle.xml.parser.*, !org.apache.crimson.tree.*, !nu.xom, !org.dom4j.*, *
+Export-Package: com.sun.syndication.*, org.jdom.*, org.jaxen.*, org.apache.xerces.dom, org.apache.xerces.parsers
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -86,6 +87,13 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/jaxen/jaxen -->
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+        </dependency>
+
+
         <!-- OSGi Dependencies -->
         <dependency>
             <groupId>org.osgi</groupId>
@@ -165,6 +173,11 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.models.api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>rome</groupId>
+            <artifactId>rome</artifactId>
+        </dependency>
+        <dependency> <groupId>jdom</groupId> <artifactId>jdom</artifactId> </dependency>
 
 
         <!-- Testing -->
