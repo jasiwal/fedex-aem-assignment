@@ -20,7 +20,7 @@
                     <manualrssfeeds
                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                             fieldDescription="Click '+' to add a new feed"
-                            fieldLabel="RSS Feeds"
+                            fieldLabel="Default RSS Feeds"
                             jcr:primaryType="nt:unstructured"
                             composite="{Boolean}true">
                         <field
